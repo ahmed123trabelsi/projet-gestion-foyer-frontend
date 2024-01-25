@@ -1,0 +1,34 @@
+.form-container {
+  max-width: 400px; /* Ajustez la largeur maximale selon vos besoins */
+  margin: 0 auto;   /* Centre le formulaire horizontalement */
+  padding: 20px;    /* Ajoute un espace intérieur pour un meilleur aspect visuel */
+}
+
+/* Ajouter de l'espace entre les champs */
+.custom-input {
+  margin-bottom: 25px;
+}
+
+/* Changer le style du texte dans les placeholders */
+.custom-input::placeholder {
+  color: #999; /* Couleur du texte de l'placeholder */
+}
+
+/* Style pour le message d'erreur */
+.small-error {
+  color: red;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* Style pour l'œil dans le champ de mot de passe */
+.input-group-text {
+  cursor: pointer;
+}
+
+/* Style pour le bouton */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}

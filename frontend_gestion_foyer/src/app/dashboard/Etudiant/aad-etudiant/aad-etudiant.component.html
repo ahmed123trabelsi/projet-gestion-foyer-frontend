@@ -1,0 +1,84 @@
+<!--template Driven Form-->
+<div class="form-container" >
+<h2 class="text-center ">Ajouter un étudiant</h2>
+<form #formEtudiant="ngForm" (ngSubmit)="adduser(formEtudiant)" class="form-group">
+
+  <!----------------------------------------------------------- Nom ------------------------------------------------------------------------>
+  <div class="mb-4">
+    <div class="input-group">
+
+      <input type="text" ngModel name="nom" required minlength="3" pattern="[a-zA-Z]*" #nomModel="ngModel" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-4500 dark:placeholder-gray-300" placeholder="Nom" style="height: 40px; font-size: 12px;">
+    </div>
+    <div *ngIf="nomModel.invalid && nomModel.touched">
+      <small *ngIf="nomModel?.errors?.['required']">Le nom est requis</small>
+      <small *ngIf="nomModel?.errors?.['minlength']">Le nom doit contenir au moins 3 caractères</small>
+      <small *ngIf="nomModel?.errors?.['pattern']">Le nom doit contenir uniquement des lettres</small>
+    </div>
+  </div>
+  <!-- -----------------------------------------------------------Prénom ----------------------------------------------------------------->
+  <div class="mb-4">
+    <div class="input-group">
+
+      <input type="text" ngModel name="prenom" required minlength="3" pattern="[a-zA-Z]*" #prenomModel="ngModel" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-4500 dark:placeholder-gray-300" placeholder="Prénom" style="height: 40px; font-size: 12px;">
+    </div>
+    <div *ngIf="prenomModel.invalid && prenomModel.touched">
+      <small *ngIf="prenomModel?.errors?.['required']">Le prénom est requis</small>
+      <small *ngIf="prenomModel?.errors?.['minlength']">Le prénom doit contenir au moins 3 caractères</small>
+      <small *ngIf="prenomModel?.errors?.['pattern']">Le prénom doit contenir uniquement des lettres</small>
+    </div>
+  </div>
+  <!----------------------------------------------------------------- Cin ------------------------------------------------------------------->
+  <div class="mb-4">
+    <div class="input-group">
+
+      <input type="text" ngModel name="cin" #cinModel="ngModel" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-4500 dark:placeholder-gray-300" placeholder="Cin" style="height: 40px; font-size: 12px;">
+    </div>
+  </div>
+
+  <!------------------------------------------------------------------ Date de Naissance ------------------------------------------------------>
+  <div class="mb-4">
+    <div class="input-group input-group-lg">
+      <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-calendar-alt"></i></span>
+      <input type="date" ngModel name="dateNaissance" #dateNaissanceModel="ngModel" class="form-control bg-light dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-4500 dark:placeholder-gray-300" placeholder="Date de Naissance" style="height: 40px; font-size: 12px;">
+    </div>
+    <div *ngIf="dateNaissanceModel.invalid && dateNaissanceModel.touched">
+      <small>Date de naissance invalide</small>
+    </div>
+  </div>
+
+  <!----------------------------------------------------------------------------- Ecole ------------------------------------------------------------------>
+
+  <div class="mb-4">
+    <div class="input-group">
+
+      <input type="text" ngModel name="ecole" ngModel #ecoleModel="ngModel" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-4500 dark:placeholder-gray-300" placeholder="Ecole" style="height: 40px; font-size: 12px;">
+    </div>
+  </div>
+
+  <!-------------------------------------------------------------------------------- Email ------------------------------------------------------------------------->
+  <div class="mb-4">
+    <div class="input-group">
+    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
+      <i class="bi bi-envelope-fill"></i>
+    </span>
+      <input type="text" name="email" ngModel #email="ngModel" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-4500 dark:placeholder-gray-300" placeholder="name@flowbite.com" style="height: 40px; font-size: 12px;">
+    </div>
+  </div>
+
+  <!---------------------------------------------------------------------------------- Mot de passe ------------------------------------------------------------------>
+
+  <div class="mb-4">
+    <div class="input-group input-group-lg">
+      <input type="password" ngModel name="password" #passwordModel="ngModel" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+              dark:border-gray-4500 dark:placeholder-gray-300" placeholder="Mot de passe" style="height: 40px; font-size: 12px;">
+    </div>
+  </div>
+
+
+  <!-- Bouton -->
+  <div class="text-center mt-3">
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </div>
+</form>
+</div>
+
