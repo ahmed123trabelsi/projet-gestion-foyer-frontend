@@ -1,0 +1,38 @@
+#myCenteredDiv {
+  /* Styles spécifiques pour la div avec l'ID "myCenteredDiv" */
+  background-color: #c23636;
+;
+}
+#myCenteredDiv h3 {
+  /* Style pour le titre h3 à l'intérieur de la div avec l'ID "myCenteredDiv" */
+  font-weight: bold;
+}
+
+#myCenteredDiv div {
+  /* Style pour le contenu à l'intérieur de la div avec l'ID "myCenteredDiv" */
+  color: white;
+}
+
+#myCenteredDiv button {
+  /* Style pour le bouton à l'intérieur de la div avec l'ID "myCenteredDiv" */
+  border-radius: 10px; /* Ajout d'un border-radius de 10px */
+}
+
+
+.input-group {
+  position: relative;
+}
+
+.character-count {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #888;
+}
+
+#current-count {
+  font-weight: bold;
+  color: #333;
+}

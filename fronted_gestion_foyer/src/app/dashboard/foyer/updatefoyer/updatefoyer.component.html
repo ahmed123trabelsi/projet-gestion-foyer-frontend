@@ -1,0 +1,19 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet">
+<div class="card shadow mb-4 mx-2">
+
+  <div class="card-header py-3">
+    <form  [formGroup]="myForm" (ngSubmit)="updateF()" class="form-group row">
+      <div class="col-3">
+        <input type="text" name="nomFoyer" class="form-control" formControlName="nomFoyer" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-4500 dark:placeholder-gray-300" placeholder="nomFoyer" style="height: 40px; font-size: 12px;">
+      </div>
+      <div class="col-3">
+        <input type="text" type="text" name="capaciteFoyer" class="form-control" formControlName="capaciteFoyer" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-4500 dark:placeholder-gray-300" placeholder="capaciteFoyer" style="height: 40px; font-size: 12px;">
+      </div>
+      <div class="col-2">
+        <button type="submit" class="btn bg-primary text-white" ><strong>Modifier</strong></button>
+      </div>
+    </form>
+  </div>
+</div>

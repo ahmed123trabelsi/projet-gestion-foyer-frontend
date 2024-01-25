@@ -1,0 +1,111 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet">
+<div class="card shadow mb-4 mx-2">
+  <div class="card-header py-3">
+    <div class="search-container mb-3 text-center">
+      <label for="searchInput" class="sr-only">Rechercher</label>
+      <div class="input-group">
+        <input type="text" id="searchInput" placeholder="Rechercher..." class="form-control small-search-input">
+        <div class="input-group-append">
+      <span class="input-group-text bg-primary">
+        <i class="fa fa-search text-white"></i>
+      </span>
+        </div>
+      </div>
+    </div>
+    <div class="card-header py-3 text-center">
+      <h3 class="mb-4">Ajouter une université</h3>
+      <form #formUniversite="ngForm" (ngSubmit)="addUniv(formUniversite)" class="form-group row">
+        <div class="col-12 d-flex justify-content-center">
+          <div class="col-3 mx-auto">
+            <label for="nomUniversite" class="form-label">Nom de l'université</label>
+            <div class="input-group">
+              <input type="text"  #nomuniv="ngModel"  id="nomUniversite" ngModel name="nomUniversite" required minlength="3" pattern="[a-zA-Z]*" #nomModelUniversite="ngModel" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Nom de l'université" style="height: 40px; font-size: 12px;" required [minLength]="3">
+              <br>
+              <br>
+
+              <div *ngIf="nomuniv.errors?.['required'] && nomuniv?.['touched']" class="alert alert-danger">
+                Ce champ est requis
+              </div>
+              <br>
+              <div *ngIf="nomuniv.errors?.['minlength'] && nomuniv?.['touched']" class="alert alert-danger">
+                La longueur minimale est de 3 caractères
+              </div>
+            </div>
+          </div>
+          <div class="col-3 mx-auto">
+            <label for="adresse" class="form-label">Adresse de l'université</label>
+            <div class="input-group">
+              <input type="text"  #adresse="ngModel"    id="adresse" ngModel name="adresse" required minlength="3" pattern="[a-zA-Z]*" #nomModelAdresse="ngModel" class="form-control bg-white dark:text-gray-100 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Adresse" style="height: 40px; font-size: 12px;" required [minLength]="3">
+              <br>
+
+              <div *ngIf="adresse.errors?.['required'] && adresse?.['touched']" class="alert alert-danger">
+                Ce champ est requis
+              </div>
+              <br>
+              <div *ngIf="adresse.errors?.['minlength'] && adresse?.['touched']" class="alert alert-danger">
+                La longueur minimale est de 3 caractères
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center mt-3"> <!-- Ligne pour le bouton avec un espace vertical (mt-3) -->
+          <div class="col-6">
+            <button type="submit" class="btn bg-primary text-white"><strong>Ajouter</strong></button>
+          </div>
+        </div>
+      </form>
+    </div>
+      </div>
+    </div>
+
+
+
+    <div class="table-responsive">
+    <table class="table table-bordered" id="dataTable">
+      <thead>
+      <tr>
+        <th>idUniversite</th>
+        <th>nomUniversite</th>
+        <th>Adresse</th>
+        <th>Foyer</th>
+
+        <th>Action</th>
+      </tr>
+      </thead>
+        <tbody *ngFor="let univ of listUniv">
+      <tr>
+        <td>{{univ.idUniversite}}</td>
+        <td>{{univ.nomUniversite}}</td>
+        <td>{{univ.adresse}}</td>
+        <td class="text-center align-middle">
+            <span [ngClass]="{'badge bg-success border': univ.foyer, 'badge bg-danger border': !univ.foyer}">
+              {{univ.foyer ? univ.foyer.nomFoyer :'Aucun Foyer'}}
+            </span>
+        </td>
+        <td style="width: 10%;">
+          <a  (click)="openPopup(univ)" class="table-link text-primary" >
+            <span class="fa-stack" >
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+          <a  class="table-link text-danger" (click)="delete(univ.idUniversite , i)" >
+            <span class="fa-stack">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+<app-univ-edit-popup
+    [show]="showPopup"
+    [univDetails]="univToEdit"
+    (saveClicked)="onSaveChanges($event)">
+</app-univ-edit-popup>
+
