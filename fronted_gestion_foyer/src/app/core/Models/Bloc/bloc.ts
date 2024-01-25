@@ -1,8 +1,0 @@
-import {Chambre} from "../Chambre/chambre";
-
-export class Bloc {
-  idBloc !: number ;
-  nomBloc !: string ;
-  capaciteBloc !: number ;
-  chambres?:Chambre[];
-}
